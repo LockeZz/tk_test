@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Claim type</h1>
+
+<table>
+  <thead>
+    <tr>
+        <th class="mr-2">ID</th>
+        <th class="mr-2">Name</th>
+        <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @claim_types.each do |ct| %>
+      <tr>
+        <td><%= ct.id %></td>
+        <td><%= ct.name %></td>
+        <td><%= link_to 'Edit', editct_claim_path(ct) %></td>
+        <td><%= link_to 'Delete', deletect_claim_path(ct), method: :delete, data: {confirm: 'Are you sure?' }%></td>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Claim Type', newct_claims_path %>

@@ -1,0 +1,37 @@
+<%= form_with(model: claim) do |form| %>
+  <% if claim.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(claim.errors.count, "error") %> prohibited this claim from being saved:</h2>
+
+      <ul>
+        <% claim.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :claim_name %>
+    <%= form.text_field :claim_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :claim_date %>
+    <%= form.date_select :claim_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :claim_type_id %>
+    <%= form.collection_select :claim_type_id, ClaimType.order(:id), :id, :name, {:prompt => "SELECT"} %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<%= form_for(@claim_type, :url => (@claim_type.new_record? ? createct_claims_path : updatect_claim_path(@claim_type))) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
