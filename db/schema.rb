@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_082609) do
+ActiveRecord::Schema.define(version: 2021_03_05_030426) do
 
   create_table "claim_types", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_082609) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "claim_type_id"
     t.integer "staff_id"
+    t.string "ct_record"
     t.index ["claim_type_id"], name: "index_claims_on_claim_type_id"
     t.index ["staff_id"], name: "index_claims_on_staff_id"
   end

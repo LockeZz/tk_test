@@ -29,6 +29,9 @@ class ClaimsController < ApplicationController
 
     respond_to do |format|
       if @claim.save
+        @ct_name = @claim.claim_type.name
+        @claim.ct_record = @ct_name
+        @claim.save
         format.html { redirect_to @claim, notice: "Claim was successfully created." }
         format.json { render :show, status: :created, location: @claim }
       else
