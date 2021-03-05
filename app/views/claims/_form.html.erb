@@ -27,9 +27,21 @@
   </div>
 
   <div class="field">
-    <%= form.label :claim_type_id %>
-    <%= form.collection_select :claim_type_id, ClaimType.order(:id), :id, :name, {:prompt => "SELECT"} %>
+    <%= form.label :claim_type_id %><br>
+    <%= form.collection_select(:claim_type_id, @dpt_ct, :id, :name, prompt: true) %>
   </div>
+
+  <div class="field">
+    <%= form.label :staff_id %><br>
+    <%= form.collection_select(:staff_id, Staff.order(:id), :id, :name, prompt: true) %>
+  </div>
+
+  <!-- <div class="field">
+    <%= form.label :claim_type_id %><br>
+    <%= form.collection_select :claim_type_id, ClaimType.order(:id), :id, :name, promp: true %>
+  </div> -->
+
+
   
   <div class="actions">
     <%= form.submit %>

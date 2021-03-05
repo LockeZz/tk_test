@@ -5,7 +5,16 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class="field">
+    <%= form.label 'Departments' %>
+    <%= form.collection_check_boxes(:department_ids, Department.all, :id, :name, {multiple: true}) do |b|%>
+      <%= b.label { b.check_box + b.text } %>
+    <% end %>
+    <!-- <%= form.collection_select(:department_ids, Department.all, :id, :name, {:prompt => "SELECT Department"}, {multiple: true}) %> -->
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
+  
 <% end %>

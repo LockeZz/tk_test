@@ -16,6 +16,7 @@
       <tr>
         <td><%= ct.id %></td>
         <td><%= ct.name %></td>
+        <td><%= ct.departments.ids %></td>
         <td><%= link_to 'Edit', editct_claim_path(ct) %></td>
         <td><%= link_to 'Delete', deletect_claim_path(ct), method: :delete, data: {confirm: 'Are you sure?' }%></td>
     <% end %>
@@ -25,3 +26,8 @@
 <br>
 
 <%= link_to 'New Claim Type', newct_claims_path %>
+<br>
+<%= link_to 'Claims', claims_path %>
+<br>
+<%= link_to 'Departments', departments_path %>
+<br>

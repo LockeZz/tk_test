@@ -9,6 +9,7 @@
       <th>Amount</th>
       <th>Claim date</th>
       <th>Claim Type</th>
+      <th>Staff</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= claim.amount %></td>
         <td><%= claim.claim_date %></td>
         <td><%= claim.claim_type.try(:name) %></td>
+        <td><%= claim.staff.name %></td>
         <td><%= link_to 'Show', claim %></td>
         <td><%= link_to 'Edit', edit_claim_path(claim) %></td>
         <td><%= link_to 'Destroy', claim, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,5 +33,11 @@
 <br>
 
 <%= link_to 'New Claim', new_claim_path %>
+<br>
 <%= link_to 'Claim Type', ct_claims_path %>
+<br>
+<%= link_to 'Departments', departments_path %>
+<br>
+<%= link_to 'Staffs', staffs_path %>
+<br>
 

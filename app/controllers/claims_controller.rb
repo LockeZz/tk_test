@@ -3,7 +3,7 @@ class ClaimsController < ApplicationController
 
   # GET /claims or /claims.json
   def index
-    @claims = Claim.all
+    @claims = Claim.where(staff_id: 1)
   end
 
   # GET /claims/1 or /claims/1.json
@@ -12,7 +12,11 @@ class ClaimsController < ApplicationController
 
   # GET /claims/new
   def new
+    @dpt = Department.find(2)
+    @dpt_ct = @dpt.claim_types
     @claim = Claim.new
+    # Store user department into a variable
+    
   end
 
   # GET /claims/1/edit
@@ -107,10 +111,11 @@ class ClaimsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def claim_params
-      params.require(:claim).permit(:claim_name, :amount, :claim_date, :claim_type_id)
+      params.require(:claim).permit(:claim_name, :amount, :claim_date, :claim_type_id, :staff_id)
     end
 
     def claim_type_params
-      params.require(:claim_type).permit(:name, :id)
+      params.require(:claim_type).permit(:name, :id, department_ids: [])
     end
+
 end
