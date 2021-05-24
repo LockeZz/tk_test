@@ -45,6 +45,9 @@ class ClaimsController < ApplicationController
   def update
     respond_to do |format|
       if @claim.update(claim_params)
+        @ct_name = @claim.claim_type.name
+        @claim.ct_record = @ct_name
+        @claim.update
         format.html { redirect_to @claim, notice: "Claim was successfully updated." }
         format.json { render :show, status: :ok, location: @claim }
       else
@@ -106,6 +109,26 @@ class ClaimsController < ApplicationController
     end
   end
 
+  def maillist 
+    @mail = Maillist.all
+  end
+
+  def new_maillist 
+    @mail = Maillist.new
+  end
+
+  def create_maillist
+    maillist = params.require(:mails)
+    p maillist 
+    @mail = Maillist.new
+    @mail.mails = maillist
+    if @mail.save 
+      redirect_to ml_claims_path
+    else
+      render 'new_maillist'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_claim
@@ -119,6 +142,10 @@ class ClaimsController < ApplicationController
 
     def claim_type_params
       params.require(:claim_type).permit(:name, :id, department_ids: [])
+    end
+
+    def mail_params 
+
     end
 
 end

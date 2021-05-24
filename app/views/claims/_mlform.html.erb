@@ -1,0 +1,7 @@
+<%= form_for(:mails, url: createml_claims_path) do |form| %>
+    <% 5.times do %>
+        <%= form.text_field nil, id: nil, placeholder: "Mail List" %>
+        <br>
+    <% end %>
+    <%= form.submit %>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_05_030426) do
+ActiveRecord::Schema.define(version: 2021_05_24_061823) do
 
   create_table "claim_types", force: :cascade do |t|
     t.string "name"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2021_03_05_030426) do
   end
 
   create_table "claimtype_departments", force: :cascade do |t|
-    t.integer "claim_type_id", null: false
-    t.integer "department_id", null: false
+    t.integer "claim_type_id"
+    t.integer "department_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["claim_type_id"], name: "index_claimtype_departments_on_claim_type_id"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(version: 2021_03_05_030426) do
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "maillists", force: :cascade do |t|
+    t.text "mails", default: "--- []\n"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Maillist</h1>
+
+<table>
+  <thead>
+    <tr>
+        <th class="mr-2">ID</th>
+        <th class="mr-2">List</th>
+        <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mail.each do |ml| %>
+      <tr>
+        <td><%= ml.id %></td>
+        <td><%= ml.mails %></td>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New ML', newml_claims_path %>
+<br>
+<%= link_to 'Claims', claims_path %>
+

@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       get 'claim_type', :as => "ct"
       get 'new_claim_type', :as => "newct"
       post 'create_claim_type', :as => "createct"  
+
+      get 'maillist', :as => "ml"
+      get 'new_maillist', :as => 'newml'
+      post 'create_maillist', :as => "createml"
     end
 
     member do 
