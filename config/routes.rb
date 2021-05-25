@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :staffs
   resources :departments
+  resources :recipe
   root :to => 'claims#index'
 
   resources :claims do 
